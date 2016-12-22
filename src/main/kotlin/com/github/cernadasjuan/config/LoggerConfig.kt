@@ -12,6 +12,5 @@ open class LoggerConfig {
 
     @Bean
     @Scope("prototype")
-    open fun logger(injectionPoint: InjectionPoint): Logger
-            = LoggerFactory.getLogger(injectionPoint.member.name)
+    open fun logger(injectionPoint: InjectionPoint): Logger = LoggerFactory.getLogger(injectionPoint.member.name)
 }

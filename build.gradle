@@ -1,14 +1,10 @@
 buildscript {
-    ext {
-        kotlinVersion = "1.0.5-2"
-        ioPlatformVersion = "Athens-SR1"
-    }
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.5-2"
     }
 }
 
@@ -20,18 +16,16 @@ jar {
     baseName = "demo-spring-kotlin"
     version = "1.0"
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.5-2"
     runtime "org.springframework.boot:spring-boot-devtools"
     runtime "org.hsqldb:hsqldb"
     testCompile "org.springframework.boot:spring-boot-starter-test"
@@ -39,6 +33,6 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "io.spring.platform:platform-bom:${ioPlatformVersion}"
+        mavenBom "io.spring.platform:platform-bom:Athens-SR1"
     }
 }
